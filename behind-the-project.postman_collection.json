@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b4e270cf-55eb-4c9c-91ad-43f7b61b8833",
+		"_postman_id": "de87fe13-ea5a-4cd7-aaa0-dc814eb9188b",
 		"name": "behind-the-project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": null,\n    \"name\": null,\n    \"lastname\": null,\n    \"email\": \"hello@example.com\",\n    \"password\" : \"123456\",\n    \"createdDate\": null,\n    \"country\": null,\n    \"province\": null,\n    \"city\": null,\n    \"type\": \"OWNER\"\n}",
+							"raw": "{\n    \"id\": null,\n    \"name\": null,\n    \"lastname\": null,\n    \"email\": \"hello@example.com\",\n    \"password\" : \"123456\",\n    \"createdDate\": null,\n    \"country\": {\n        \"id\": 1,\n        \"country\": \"Argentina\"\n    },\n    \"province\": {\n        \"id\":   1,\n        \"province\": \"Chaco\"\n    },\n    \"city\": {\n        \"id\": 1,\n        \"city\": \"Resistencia\"\n    },\n    \"type\": \"OWNER\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -59,28 +59,6 @@
 							]
 						},
 						"description": "This endpoint filters users by created date"
-					},
-					"response": []
-				},
-				{
-					"name": "localhost:8080/api/v1/user/sample",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/api/v1/user/sample",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"user",
-								"sample"
-							]
-						},
-						"description": "This endpoint return a user template."
 					},
 					"response": []
 				},
@@ -159,6 +137,864 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "localhost:8080/api/v1/event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventsDetail\": \"name event\",\n    \"startDate\": \"year-month-day\",\n    \"endDate\": \"year-month-day\",\n    \"eventState\": \"OPEN\",\n    \"reward\": 0\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event"
+							]
+						},
+						"description": "This endpoint creates a new event."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/event",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"eventsDetail\": \"name event\",\n    \"startDate\": \"year-month-day\",\n    \"endDate\": \"year-month-day\",\n    \"eventState\": \"OPEN\",\n    \"reward\": 0\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event"
+							]
+						},
+						"description": "This endpoint edits a event."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/event",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"eventsDetail\": \"name event\",\n    \"startDate\": \"year-month-day\",\n    \"endDate\": \"year-month-day\",\n    \"eventState\": \"OPEN\",\n    \"reward\": 0\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event",
+								"findAll"
+							]
+						},
+						"description": "This endpoint retrieves the list of events"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/event/{idEvent}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 3,\n        \"eventsDetail\": \"new\",\n        \"startDate\": \"2021-12-18\",\n        \"endDate\": \"2022-01-10\",\n        \"eventState\": \"FINISHED\",\n        \"reward\": 100000.00,\n        \"projectDTOS\": [],\n        \"status\": \"I\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event/{idEvent}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event",
+								"{idEvent}"
+							]
+						},
+						"description": "This endpoint inactivates a event."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/event/activateEvent/{idEvent}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 1,\n        \"eventsDetail\": \"modificado event\",\n        \"startDate\": \"2021-12-18\",\n        \"endDate\": \"2022-01-10\",\n        \"eventState\": \"OPEN\",\n        \"reward\": 9999999.00,\n        \"status\": \"I\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event/activateEvent/{idEvent}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event",
+								"activateEvent",
+								"{idEvent}"
+							]
+						},
+						"description": "This endpoint activates a event in estate inactivates."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/event/ranking/{idEvent}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 1,\n        \"eventsDetail\": \"modificado event\",\n        \"startDate\": \"2021-12-18\",\n        \"endDate\": \"2022-01-10\",\n        \"eventState\": \"OPEN\",\n        \"reward\": 9999999.00,\n        \"status\": \"I\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event/ranking/{idEvent}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event",
+								"ranking",
+								"{idEvent}"
+							]
+						},
+						"description": "This endpoint retrieves the ranking the event."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "localhost:8080/api/v1/project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"users\": [\n            {\n                \"id\": null,\n                \"name\": null,\n                \"lastname\": null,\n                \"email\": \"hello@example.com\",\n                \"password\" : \"123456\",\n                \"createdDate\": null,\n                \"country\": {\n                    \"id\": 1,\n                    \"country\": \"Argentina\"\n                },\n                \"province\": {\n                    \"id\":   1,\n                    \"province\": \"Chaco\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"city\": \"Resistencia\"\n                },\n                \"type\": \"OWNER\"\n            }\n        ],\n        \"name\": null,\n        \"description\": null,\n        \"content\": null,\n        \"objective\": 0,  \n        \"published\": true,\n        \"url\": [],\n        \"tags\": [],\n        \"like\": [],\n        \"status\": \"A\",\n        \"event\": {\n            \"id\": 1,\n            \"eventsDetail\": null,\n            \"startDate\": \"year-month-day\",\n            \"endDate\": \"year-month-day\",\n            \"eventState\": \"OPEN\",\n            \"reward\": 0,\n            \"projects\": [],\n            \"status\": \"A\"\n        }\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project"
+							]
+						},
+						"description": "This endpoint creates a new project."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 1,\n        \"users\": [\n            {\n                \"id\": null,\n                \"name\": null,\n                \"lastname\": null,\n                \"email\": \"hello@example.com\",\n                \"password\" : \"123456\",\n                \"createdDate\": null,\n                \"country\": {\n                    \"id\": 1,\n                    \"country\": \"Argentina\"\n                },\n                \"province\": {\n                    \"id\":   1,\n                    \"province\": \"Chaco\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"city\": \"Resistencia\"\n                },\n                \"type\": \"OWNER\"\n            }\n        ],\n        \"name\": null,\n        \"description\": null,\n        \"content\": null,\n        \"objective\": 0,  \n        \"published\": true,\n        \"url\": [],\n        \"tags\": [],\n        \"like\": [],\n        \"status\": \"A\",\n        \"event\": {\n            \"id\": 1,\n            \"eventsDetail\": null,\n            \"startDate\": \"year-month-day\",\n            \"endDate\": \"year-month-day\",\n            \"eventState\": \"OPEN\",\n            \"reward\": 0,\n            \"projects\": [],\n            \"status\": \"A\"\n        }\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project"
+							]
+						},
+						"description": "This endpoint edits a project."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"findAll"
+							]
+						},
+						"description": "This endpoint retrieves the list of projects."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project/getAllOneTag/{tag}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/getAllOneTag/{tag}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"getAllOneTag",
+								"{tag}"
+							]
+						},
+						"description": "This endpoint retrieves all projects that contain the given tag"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project/publish/{idProject}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/publish/{idProject}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"publish",
+								"{idProject}"
+							]
+						},
+						"description": "This endpoint publish a project"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project/unpublish/{idProject}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/unpublish/{idProject}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"unpublish",
+								"{idProject}"
+							]
+						},
+						"description": "This endpoint unpublish a project."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project/unpublishProject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/unpublishProject",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"unpublishProject"
+							]
+						},
+						"description": "This endpoint retrieves the list of projects in estate not publish."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project/{idProject}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/{idProject}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"{idProject}"
+							]
+						},
+						"description": "This endpoint inactivates a project."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/project/activateProject/{idProject}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/activateProject/{idProject}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"activateProject",
+								"{idProject}"
+							]
+						},
+						"description": "This endpoint activate a project."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tag",
+			"item": [
+				{
+					"name": "localhost:8080/api/v1/tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tag\": \"project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tag",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						},
+						"description": "This endpoint creates a new tag"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/tag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"tag\": \"winning project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tag",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						},
+						"description": "This endpoint edits a tag."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/tag/{idTag}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"tag\": \"winning project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tag/{idTag}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"{idTag}"
+							]
+						},
+						"description": "This endpoint inactivates a tag."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/tag/{idTag}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"tag\": \"winning project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tag/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"findAll"
+							]
+						},
+						"description": "This endpoint retrieves the list of tags"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "img",
+			"item": [
+				{
+					"name": "localhost:8080/api/v1/image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"image"
+							]
+						},
+						"description": "This endpoint creates a new image"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/image/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"findAll"
+							]
+						},
+						"description": "This endpoint retrieves the list of images"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"url\": \"https://sample-upgradeimg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/image",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"image"
+							]
+						},
+						"description": "This endpoint edits a img."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/image/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"url\": \"https://sample-upgradeimg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/image/{idImage}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"{idImage}"
+							]
+						},
+						"description": "This endpoint inactivates a image."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vote",
+			"item": [
+				{
+					"name": "localhost:8080/api/v1/vote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"id\": null,\n        \"name\": null,\n        \"lastname\": null,\n        \"email\": \"hello@example.com\",\n        \"password\" : \"123456\",\n        \"createdDate\": null,\n        \"country\": {\n            \"id\": 1,\n            \"country\": \"Argentina\"\n        },\n        \"province\": {\n            \"id\":   1,\n            \"province\": \"Chaco\"\n        },\n        \"city\": {\n            \"id\": 1,\n            \"city\": \"Resistencia\"\n        },\n        \"type\": \"OWNER\"\n    },\n    \"project\":     {\n        \"id\": 1,\n        \"users\": [\n            {\n                \"id\": 1,\n                \"users\": [\n                    {\n                        \"id\": null,\n                        \"name\": null,\n                        \"lastname\": null,\n                        \"email\": \"hello@example.com\",\n                        \"password\" : \"123456\",\n                        \"createdDate\": null,\n                        \"country\": {\n                            \"id\": 1,\n                            \"country\": \"Argentina\"\n                        },\n                        \"province\": {\n                            \"id\":   1,\n                            \"province\": \"Chaco\"\n                        },\n                        \"city\": {\n                            \"id\": 1,\n                            \"city\": \"Resistencia\"\n                        },\n                        \"type\": \"OWNER\"\n                    }\n            ],\n        \"name\": null,\n        \"description\": null,\n        \"content\": null,\n        \"objective\": 0,  \n        \"published\": true,\n        \"url\": [],\n        \"tags\": [],\n        \"like\": [],\n        \"status\": \"A\"\n        }\n    ]}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/vote",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"vote"
+							]
+						},
+						"description": "This endpoint creates a new vote."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/vote/all-votes/{idUser}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/vote/all-votes/{idUser}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"vote",
+								"all-votes",
+								"{idUser}"
+							]
+						},
+						"description": "This endpoint retrieves all votes did one user."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "flow example",
+			"item": [
+				{
+					"name": "1 create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"Fatima\",\n        \"lastname\": \"Del Fabro\",\n        \"email\": \"fatima-test@test.com\",\n        \"password\": \"123456\",\n        \"country\": {\n                    \"id\": 1,\n                    \"country\": \"Argentina\"\n                },\n                \"province\": {\n                    \"id\":   1,\n                    \"province\": \"Chaco\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"city\": \"Resistencia\"\n                },\n        \"type\": \"OWNER\",\n        \"status\": \"A\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 create event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventsDetail\": \"Event test\",\n    \"startDate\": \"2022-01-01\",\n    \"endDate\": \"2022-01-30\",\n    \"reward\": 100000\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/event",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 create project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"users\":     [{\n            \"id\": 1,\n            \"name\": \"Fatima\",\n            \"lastname\": \"Del Fabro\",\n            \"email\": \"fatima-test@test.com\",\n            \"country\": {\n                        \"id\": 1,\n                        \"country\": \"Argentina\"\n                    },\n                    \"province\": {\n                        \"id\":   1,\n                        \"province\": \"Chaco\"\n                    },\n                    \"city\": {\n                        \"id\": 1,\n                        \"city\": \"Resistencia\"\n                    },\n            \"type\": \"OWNER\",\n            \"status\": \"A\"\n        }],\n        \"name\": \"name project test\",\n        \"description\": \"descripción project test\",\n        \"content\": \"content project test\",\n        \"published\": true,\n        \"url\": [],\n        \"tags\": [],\n        \"like\": [],\n        \"status\": \"A\",\n        \"event\": {\n            \"id\": 1,\n            \"eventsDetail\": \"Event test\",\n            \"startDate\": \"2022-01-01\",\n            \"endDate\": \"2022-01-30\",\n            \"eventState\": \"OPEN\",\n            \"reward\": 100000.00,\n            \"status\": \"A\"\n        }\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Here you will find the flow that you should follow to load the project"
 		}
 	]
 }
