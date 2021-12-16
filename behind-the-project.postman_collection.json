@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "b4e270cf-55eb-4c9c-91ad-43f7b61b8833",
+		"name": "behind-the-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "localhost:8080/api/v1/user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"name\": null,\n    \"lastname\": null,\n    \"email\": \"hello@example.com\",\n    \"password\" : \"123456\",\n    \"createdDate\": null,\n    \"country\": null,\n    \"province\": null,\n    \"city\": null,\n    \"type\": \"OWNER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						},
+						"description": "This endpoint creates a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/user/{year}/{month}/{day}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/user/{year}/{month}/{day}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"{year}",
+								"{month}",
+								"{day}"
+							]
+						},
+						"description": "This endpoint filters users by created date"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/user/sample",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/user/sample",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"sample"
+							]
+						},
+						"description": "This endpoint return a user template."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/user/findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/user/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"findAll"
+							]
+						},
+						"description": "This endpoint retrieves the list of users"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 2,\n        \"name\": \"test\",\n        \"lastname\": \"test\",\n        \"email\": \"hello@example.com\",\n        \"password\" : \"123456\",\n        \"createdDate\": \"2021-12-09\",\n        \"country\": null,\n        \"province\": null,\n        \"city\": null,\n        \"type\": \"OWNER\",\n        \"status\": null\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						},
+						"description": "This endpoint edits a user."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/api/v1/user/{idUser}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/user/{idUser}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"{idUser}"
+							]
+						},
+						"description": "This endpoint inactivates a user."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
